@@ -1,0 +1,26 @@
+[build-system]
+build-backend = 'mesonpy'
+requires = ['meson-python >= 0.15.0', 'Cython >= 3.0.0']
+
+[project]
+name = 'crystfel'
+dynamic = ['version']
+description = 'Python bindings for libcrystfel: detector geometry and indexing'
+readme = 'README.md'
+requires-python = '>= 3.9'
+license = { text = 'GPL-3.0-or-later' }
+dependencies = ['numpy >= 1.21']
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Intended Audience :: Science/Research',
+  'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+  'Programming Language :: Cython',
+  'Topic :: Scientific/Engineering :: Physics',
+]
+
+[project.urls]
+Homepage = 'https://www.desy.de/~twhite/crystfel/'
+Source = 'https://gitlab.desy.de/thomas.white/crystfel'
+
+[project.optional-dependencies]
+test = ['pytest']

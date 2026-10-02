@@ -28,6 +28,10 @@ For command-line use, standard ```man``` pages are available.  Start with
 ```man crystfel```.  The manual pages are also
 [available on the web](https://www.desy.de/~twhite/crystfel/manual.html).
 
+CrystFEL's detector geometry and indexing routines can also be driven directly
+from Python, using the bindings in [python/crystfel](python/crystfel).  See
+[INSTALL.md](INSTALL.md) for how to install them.
+
 
 Documentation
 -------------
@@ -38,6 +42,8 @@ Documentation
 * [How to increase data processing speed](doc/articles/speed.rst)
 * [Real-time data processing](doc/articles/online.rst)
 * [Processing electron diffraction data](doc/articles/electrons.rst)
+* [Using CrystFEL from Python](python/crystfel/README.md) - geometry
+  transformations and indexing, via Cython bindings to `libcrystfel`.
 * [Symmetry classification for serial crystallography](doc/twin-calculator.pdf)
 * [Matrix conventions used in CrystFEL code](doc/matrix-notation.pdf) - for
   developers, written mostly for my own benefit.

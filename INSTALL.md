@@ -249,6 +249,42 @@ is not automatically referenced in your shell setup files (`.bashrc` and
 others).
 
 
+Python bindings
+---------------
+
+CrystFEL's detector geometry and indexing routines can be used from Python,
+through Cython bindings to `libcrystfel`.  These are not built as part of
+CrystFEL itself.  They are a separate Python package, in the `python/crystfel`
+directory of the source code, which builds against an *already installed*
+CrystFEL.
+
+So, install CrystFEL first as described above, then make its `pkg-config` file
+visible and install the bindings:
+```
+$ export PKG_CONFIG_PATH=/path/to/crystfel/lib64/pkgconfig
+$ pip install ./python/crystfel
+```
+Use `lib` instead of `lib64` if that is where your libraries ended up.  You can
+check that the first step worked like this, which should print the CrystFEL
+version number:
+```
+$ pkg-config --modversion crystfel
+```
+
+You need Python 3.9 or later, NumPy, and a C compiler.  The build-time
+requirements (Meson, meson-python and Cython) will be downloaded automatically
+by `pip`.  If you would rather use versions already installed on your system,
+add `--no-build-isolation`.
+
+If you installed CrystFEL somewhere other than a system location, the dynamic
+linker also needs to find `libcrystfel` when the bindings are imported.  You
+may therefore need to set `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` on Mac OS), or
+configure the library path as described in the problems section below.
+
+See [python/crystfel/README.md](python/crystfel/README.md) for what the
+bindings cover and how to use them.
+
+
 Finding syminfo.lib
 -------------------
 
